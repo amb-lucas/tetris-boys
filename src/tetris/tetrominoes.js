@@ -78,14 +78,6 @@ const zTet = [
 
 const tetrominoes = [lTet, qTet, tTet, iTet, sTet, zTet];
 
-let count = 0;
-for (let i = 0; i < height; i++) {
-  for (let j = 0; j < width; j++) {
-    if (i === height - 1) console.log(count);
-    count++;
-  }
-}
-
 const wallPositions = [];
 for (let i = 0; i < height; i++) {
   wallPositions.push(width * i);
@@ -95,5 +87,3 @@ for (let i = 1; i < width - 1; i++) {
   wallPositions.push(i);
   wallPositions.push((height - 1) * width + i);
 }
-
-console.log(wallPositions);
