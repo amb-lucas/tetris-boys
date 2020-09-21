@@ -1,13 +1,35 @@
 // New Piece
 const newPiece = () => {
   curPiece = RandomInt(0, tetrominoes.length - 1);
-  curPosition =
-    width + width / 2 - Math.floor(tetrominoes[curPiece].length / 2);
+
+  let curPos = 0;
+  tetrominoes[curPiece][0].forEach((p) => {
+    curPos = Math.max(curPos, p % width);
+  });
+
+  curPosition = width + Math.floor(width / 2 - (curPos + 1) / 2);
   curRotation = 0;
 };
 
-// Check for moves
+// Game commands
+const handleNewGame = () => {
+  hideGameOver();
+  undraw();
 
+  placedPositions = [];
+  currentScore = 0;
+  newPiece();
+
+  draw();
+};
+
+const handleGameOver = () => {
+  showGameOver();
+  gameOver = true;
+  gameOn = false;
+};
+
+// Check for moves
 const checkColision = () => {
   return currentPiece().some((pos) => {
     if (wallPositions.includes(pos)) return true;
@@ -33,39 +55,64 @@ const tryRight = () => {
 const tryRotate = () => {
   const lastRotation = curRotation;
   curRotation = (curRotation + 1) % tetrominoes[curPiece].length;
-
   if (checkColision()) curRotation = lastRotation;
 };
 
-// Handle moves processes
+// Handle moves processing
+const checkLine = (k) => {
+  for (let i = 1; i < width - 1; i++) {
+    if (!placedPositions.includes(width * k + i)) return false;
+  }
+  return true;
+};
+
+const handleCompleteLines = () => {
+  for (let k = height - 2; k > 0; k--) {
+    if (checkLine(k)) {
+      currentScore += 100;
+
+      placedPositions = placedPositions.filter(
+        (pos) => pos < k * width || pos >= (k + 1) * width
+      );
+      placedPositions = placedPositions.map((pos) => {
+        if (pos < k * width) return pos + width;
+        return pos;
+      });
+
+      k++;
+    }
+  }
+};
+
 const placePiece = () => {
-  currentScore += 10;
   currentPiece().forEach((pos) => placedPositions.push(pos));
+  handleCompleteLines();
 };
 
 const processMove = (dir) => {
-  undraw();
-
   if (dir === "down") {
     if (checkDown() === false) {
       placePiece();
       newPiece();
+
+      draw();
+
+      if (checkColision()) {
+        return handleGameOver();
+      }
     }
-  } else if (dir === "right") tryRight();
+  }
+
+  undraw();
+
+  if (dir === "right") tryRight();
   else if (dir === "left") tryLeft();
   else if (dir === "rotate") tryRotate();
 
-  draw();
+  if (gameOn) draw();
 };
 
-// Game commands
-const newGame = () => {
-  newPiece();
-  placedPositions = [];
-  currentScore = 0;
-  draw();
-};
-
+// Turns
 document.addEventListener("DOMContentLoaded", () => {
   const timeInterval = 50;
   const curLim = 8;
@@ -73,18 +120,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(() => {
     if (gameOn) {
+      showPause();
       curTurn++;
 
       if (gameOver === true) {
-        newGame();
+        handleNewGame();
+        curTurn = 0;
         gameOver = false;
       }
 
       if (command) {
         if (command === "left") processMove("left");
         else if (command === "right") processMove("right");
-        else if (command === "down") processMove("down");
-        else if (command === "rotate") processMove("rotate");
+        else if (command === "down") {
+          processMove("down");
+          currentScore += 10;
+        } else if (command === "rotate") processMove("rotate");
 
         command = "";
       }
@@ -93,6 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
         curTurn = 0;
         processMove("down");
       }
-    }
+    } else showPlay();
   }, timeInterval);
 });

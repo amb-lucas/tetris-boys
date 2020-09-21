@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: "Varela Round", sans-serif;
 }
 
 body {
@@ -8,15 +9,46 @@ body {
   text-align: center;
 }
 
+#game-over {
+  position: absolute;
+
+  width: 480px;
+  height: 400px;
+
+  top: 340px;
+  right: calc(50% - 240px);
+
+  opacity: 0;
+  transition: 0.3s;
+}
+.game-over-visible {
+  opacity: 0.92 !important;
+}
+
 body h3 {
-  font-size: 32px;
+  font-size: 48px;
   margin-top: 40px;
   color: var(--text);
 }
 
 #start-button {
   margin-top: 24px;
-  font-size: 24px;
+  font-size: 40px;
+
+  width: 170px;
+  height: 60px;
+
+  outline: none;
+  border: none;
+  border-radius: 12px;
+
+  background-color: var(--buttonbackground);
+
+  transition: all 0.2s;
+}
+#start-button:hover {
+  background-color: var(--buttonhover);
+  cursor: pointer;
 }
 
 .grid table {
@@ -35,7 +67,7 @@ body h3 {
 }
 
 .tetromino {
-  background-color: var(--currentTetromino);
+  background-color: var(--currentTetromino) !important;
 }
 .placedTetromino {
   background-color: var(--placedTetromino);

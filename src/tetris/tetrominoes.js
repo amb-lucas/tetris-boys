@@ -20,6 +20,25 @@ const lTet = [
   // 1 0 0
 ];
 
+const l2Tet = [
+  [1, width + 1, 2 * width, 2 * width + 1],
+  // 0 1 0
+  // 0 1 0
+  // 1 1 0
+  [width, width + 1, width + 2, 2 * width + 2],
+  // 0 0 0
+  // 1 1 1
+  // 0 0 1
+  [1, 2, width + 1, 2 * width + 1],
+  // 0 1 1
+  // 0 1 0
+  // 0 1 0
+  [0, width, width + 1, width + 2],
+  // 1 0 0
+  // 1 1 1
+  // 0 0 0
+];
+
 const qTet = [
   [0, 1, width, width + 1],
   // 1 1
@@ -76,7 +95,7 @@ const zTet = [
   // 1 0
 ];
 
-const tetrominoes = [lTet, qTet, tTet, iTet, sTet, zTet];
+const tetrominoes = [lTet, l2Tet, qTet, tTet, iTet, sTet, zTet];
 
 const wallPositions = [];
 for (let i = 0; i < height; i++) {

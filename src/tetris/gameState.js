@@ -1,5 +1,6 @@
 let placedPositions = [];
 let currentScore = 0;
+let hightScore = 0;
 
 let curPiece = 0;
 let curRotation = 0;
