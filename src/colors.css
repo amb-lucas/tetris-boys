@@ -1,0 +1,10 @@
+* {
+  --text: #fafafa;
+  --gamebackground: #2c2c2c;
+  --gamegrid: #1f1f1f;
+
+  --currentTetromino: #d789d7;
+  --placedTetromino: #9d65c9;
+
+  --pagebackground: #2a3d66;
+}

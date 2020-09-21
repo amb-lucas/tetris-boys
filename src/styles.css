@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  background-color: var(--pagebackground);
+  text-align: center;
+}
+
+body h3 {
+  font-size: 32px;
+  margin-top: 40px;
+  color: var(--text);
+}
+
+#start-button {
+  margin-top: 24px;
+  font-size: 24px;
+}
+
+.grid table {
+  margin: 48px auto;
+
+  width: 360px;
+  height: 630px;
+
+  background-color: var(--gamebackground);
+  border-spacing: 0px;
+}
+
+.grid table,
+.grid table tr td {
+  border: 1px solid var(--gamegrid);
+}
+
+.tetromino {
+  background-color: var(--currentTetromino);
+}
+.placedTetromino {
+  background-color: var(--placedTetromino);
+}
+
+.grid table tr:first-of-type td,
+.grid table tr:last-of-type td,
+.grid table tr td:first-of-type,
+.grid table tr td:last-of-type {
+  width: 0px;
+  height: 0px;
+  background-color: var(--gamegrid);
+}
