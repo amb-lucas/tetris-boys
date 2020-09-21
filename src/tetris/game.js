@@ -67,9 +67,11 @@ const checkLine = (k) => {
 };
 
 const handleCompleteLines = () => {
+  let completedLines = 0;
   for (let k = height - 2; k > 0; k--) {
     if (checkLine(k)) {
       currentScore += 100;
+      completedLines++;
 
       placedPositions = placedPositions.filter(
         (pos) => pos < k * width || pos >= (k + 1) * width
@@ -82,6 +84,11 @@ const handleCompleteLines = () => {
       k++;
     }
   }
+
+  if (completedLines === 1) showO();
+  else if (completedLines === 2) showOo();
+  else if (completedLines === 3) showOoo();
+  else if (completedLines === 4) showOooo();
 };
 
 const placePiece = () => {

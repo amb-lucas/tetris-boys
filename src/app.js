@@ -1,12 +1,17 @@
 let scoreDisplay;
 let squares;
 let gameOverImg;
+let oImg, ooImg, oooImg, ooooImg;
 let playButton;
 
 document.addEventListener("DOMContentLoaded", () => {
   scoreDisplay = document.getElementById("score");
   squares = Array.from(document.querySelectorAll(".grid table tr td"));
   gameOverImg = document.getElementById("game-over");
+  oImg = document.getElementById("o");
+  ooImg = document.getElementById("oo");
+  oooImg = document.getElementById("ooo");
+  ooooImg = document.getElementById("oooo");
   playButton = document.getElementById("start-button");
 });
 
@@ -39,4 +44,29 @@ const showPlay = () => {
 };
 const showPause = () => {
   playButton.textContent = "PAUSE";
+};
+
+const showO = () => {
+  oImg.classList.add("oooo-visible");
+  setTimeout(() => {
+    oImg.classList.remove("oooo-visible");
+  }, 3000);
+};
+const showOo = () => {
+  ooImg.classList.add("oooo-visible");
+  setTimeout(() => {
+    ooImg.classList.remove("oooo-visible");
+  }, 3000);
+};
+const showOoo = () => {
+  oooImg.classList.add("oooo-visible");
+  setTimeout(() => {
+    oooImg.classList.remove("oooo-visible");
+  }, 3000);
+};
+const showOooo = () => {
+  ooooImg.classList.add("oooo-visible");
+  setTimeout(() => {
+    ooooImg.classList.remove("oooo-visible");
+  }, 3000);
 };

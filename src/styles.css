@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
   font-family: "Varela Round", sans-serif;
 }
 
@@ -23,6 +24,40 @@ body {
 }
 .game-over-visible {
   opacity: 0.92 !important;
+}
+
+.oooo {
+  position: absolute;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+.oooo-visible {
+  opacity: 1 !important;
+}
+
+#o {
+  width: 200px;
+
+  top: 230px;
+  right: calc(50% - 400px);
+}
+#oo {
+  top: 230px;
+  left: calc(50% - 420px);
+}
+#ooo {
+  width: 300px;
+  height: 240px;
+
+  top: 621px;
+  right: calc(50% - 500px);
+}
+#oooo {
+  width: 360px;
+
+  top: 655px;
+  left: calc(50% - 560px);
 }
 
 body h3 {
