@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("keydown", ({ key }) => {
+document.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  const { key } = e;
+
   if (!gameOn) return;
 
   if (key === "ArrowLeft" || key === "a") command = "left";
