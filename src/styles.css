@@ -10,6 +10,29 @@ body {
   text-align: center;
 }
 
+#music-button {
+  outline: none;
+  border-width: 0;
+  background-color: rgba(0, 0, 0, 0);
+
+  position: absolute;
+  top: 122px;
+  right: calc(50% - 180px);
+}
+
+#music-button img {
+  height: 60px;
+
+  transition: 0.2s;
+
+  filter: invert(99%) sepia(38%) saturate(2592%) hue-rotate(162deg)
+    brightness(97%) contrast(95%);
+}
+#music-button:hover img {
+  filter: invert(26%) sepia(92%) saturate(6813%) hue-rotate(312deg)
+    brightness(94%) contrast(99%);
+}
+
 #game-over {
   position: absolute;
 
@@ -115,4 +138,17 @@ body h3 {
   width: 0px;
   height: 0px;
   background-color: var(--gamegrid);
+}
+
+.icons-att {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+
+  font-size: 12px;
+  color: var(--text);
+}
+.icons-att a {
+  text-decoration: none;
+  color: var(--text);
 }
