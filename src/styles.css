@@ -105,8 +105,6 @@ button:hover {
   right: calc(50% - 240px);
 
   opacity: 0.92;
-  transition: 0.3s;
-
   visibility: hidden;
 }
 .game-over-visible {
