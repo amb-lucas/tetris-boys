@@ -2,11 +2,7 @@ let scoreDisplay;
 let squares;
 let gameOverImg;
 let oImg, ooImg, oooImg, ooooImg;
-let playButton, musicButton;
-let buttonImg;
-
-let music = new Audio("./assets/musiquinhamanera.mp3");
-music.loop = true;
+let playButton;
 
 document.addEventListener("DOMContentLoaded", () => {
   scoreDisplay = document.getElementById("score");
@@ -17,23 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   oooImg = document.getElementById("ooo");
   ooooImg = document.getElementById("oooo");
   playButton = document.getElementById("start-button");
-  musicButton = document.getElementById("music-button");
-  buttonImg = document.getElementById("button-img");
-
-  musicButton.addEventListener("click", () => {
-    const state = musicButton.getAttribute("data-state");
-    if (state === "mute") {
-      musicButton.setAttribute("data-state", "nonmute");
-      buttonImg.setAttribute("src", "./assets/volume-up.svg");
-
-      music.play();
-    } else {
-      musicButton.setAttribute("data-state", "mute");
-      buttonImg.setAttribute("src", "./assets/no-sound.svg");
-
-      music.pause();
-    }
-  });
 });
 
 const draw = () => {

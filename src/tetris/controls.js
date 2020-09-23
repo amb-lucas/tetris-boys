@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   startBtn.addEventListener("click", () => {
     gameOn = !gameOn;
     startBtn.blur();
+
+    if (gameOn) hideHelpBox();
   });
 });
 

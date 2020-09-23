@@ -8,21 +8,61 @@ body {
   width: 100%;
   background-color: var(--pagebackground);
   text-align: center;
+
+  overflow-x: hidden;
+}
+
+button {
+  transition: 0.2s;
+  outline: none;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+#help-button {
+  position: absolute;
+  top: 121.5px;
+  left: calc(50% - 180px);
+
+  font-size: 40px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+
+  transition: 0.2s;
+  background-color: var(--buttonbackground);
+}
+#help-button:hover {
+  background-color: var(--buttonhover);
+}
+
+#start-button {
+  margin-top: 24px;
+  font-size: 40px;
+  font-weight: bold;
+
+  width: 170px;
+  height: 60px;
+
+  border-radius: 12px;
+  background-color: var(--buttonbackground);
+}
+#start-button:hover {
+  background-color: var(--buttonhover);
 }
 
 #music-button {
-  outline: none;
-  border-width: 0;
   background-color: rgba(0, 0, 0, 0);
 
   position: absolute;
-  top: 122px;
+  top: 121.5px;
   right: calc(50% - 180px);
 }
 
 #music-button img {
   height: 60px;
-
   transition: 0.2s;
 
   filter: invert(99%) sepia(38%) saturate(2592%) hue-rotate(162deg)
@@ -31,6 +71,28 @@ body {
 #music-button:hover img {
   filter: invert(26%) sepia(92%) saturate(6813%) hue-rotate(312deg)
     brightness(94%) contrast(99%);
+}
+
+#help-box {
+  z-index: 1;
+  position: absolute;
+
+  width: calc(358px - 36 * 2px);
+  padding: 36px;
+
+  top: 460px;
+  right: calc(50% - 179px);
+
+  font-size: 18px;
+
+  opacity: 1;
+  color: var(--text);
+
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+.help-box-visible {
+  visibility: visible !important;
 }
 
 #game-over {
@@ -42,21 +104,24 @@ body {
   top: 340px;
   right: calc(50% - 240px);
 
-  opacity: 0;
+  opacity: 0.92;
   transition: 0.3s;
+
+  visibility: hidden;
 }
 .game-over-visible {
-  opacity: 0.92 !important;
+  visibility: visible !important;
 }
 
 .oooo {
   position: absolute;
 
-  opacity: 0;
+  opacity: 1;
+  visibility: hidden;
   transition: 0.3s;
 }
 .oooo-visible {
-  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 #o {
@@ -87,26 +152,6 @@ body h3 {
   font-size: 48px;
   margin-top: 40px;
   color: var(--text);
-}
-
-#start-button {
-  margin-top: 24px;
-  font-size: 40px;
-
-  width: 170px;
-  height: 60px;
-
-  outline: none;
-  border: none;
-  border-radius: 12px;
-
-  background-color: var(--buttonbackground);
-
-  transition: all 0.2s;
-}
-#start-button:hover {
-  background-color: var(--buttonhover);
-  cursor: pointer;
 }
 
 .grid table {

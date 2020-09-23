@@ -17,11 +17,23 @@
 
     <script src="./utils/randomInt.js"></script>
     <script src="./tetris/tetrominoes.js"></script>
+
+    <script src="./tetris/music.js"></script>
+    <script src="./tetris/help.js"></script>
     <script src="./tetris/controls.js"></script>
   </head>
 
   <body>
     <h3>Score: <span id="score">0</span></h3>
+
+    <button id="help-button" data-state="inactive">
+      <img src="./assets/question-mark.svg" />
+    </button>
+    <div id="help-box">
+      Press left, down and right or ASD to move the tetromino.<br /><br />
+      Press up, W or space to rotate it.
+    </div>
+
     <button id="start-button">PLAY</button>
     <button id="music-button" data-state="mute">
       <img src="./assets/no-sound.svg" id="button-img" />
@@ -372,7 +384,9 @@
 
     <div class="icons-att">
       Icons made by
-      <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a>
+      <a href="https://www.flaticon.com/authors/bqlqn">bqlqn</a>
+      and
+      <a href="https://www.flaticon.com/authors/freepik">Freepik</a>
       from
       <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
     </div>
