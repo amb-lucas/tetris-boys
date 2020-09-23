@@ -157,8 +157,8 @@ body h3 {
 .grid table {
   margin: 48px auto;
 
-  width: 360px;
-  height: 630px;
+  height: calc(100% - 300px);
+  width: calc((100vh - 300px) * 360 / 630);
 
   background-color: var(--gamebackground);
   border-spacing: 0px;
