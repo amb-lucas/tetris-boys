@@ -80,7 +80,7 @@ button:hover {
   width: calc(358px - 36 * 2px);
   padding: 36px;
 
-  top: 460px;
+  top: 50%;
   right: calc(50% - 179px);
 
   font-size: 18px;
@@ -98,11 +98,10 @@ button:hover {
 #game-over {
   position: absolute;
 
-  width: 480px;
-  height: 400px;
+  width: calc(358px - 36 * 2px);
 
-  top: 340px;
-  right: calc(50% - 240px);
+  top: calc(50% - 40px);
+  right: calc(50% - 143px);
 
   opacity: 0.92;
   visibility: hidden;
@@ -115,7 +114,7 @@ button:hover {
   position: absolute;
 
   opacity: 1;
-  visibility: hidden;
+  visibility: visible;
   transition: 0.3s;
 }
 .oooo-visible {
@@ -136,13 +135,13 @@ button:hover {
   width: 300px;
   height: 240px;
 
-  top: 621px;
+  bottom: 70px;
   right: calc(50% - 500px);
 }
 #oooo {
   width: 360px;
 
-  top: 655px;
+  bottom: 70px;
   left: calc(50% - 560px);
 }
 
