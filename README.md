@@ -6,6 +6,13 @@ Consists of a basic implementation of the Tetris game on a browser, running on J
 
 To play, click [HERE](https://amb-lucas.github.io/tetris-boys/src/)
 
+## INSTRUCTIONS
+
+Press left, down and right or ASD to move the tetromino.
+Press up, W or space to rotate it.
+
+## AUTHORS
+
 The developers of this project are:
 
 - [Fernando Rego Pessoa](https://github.com/frpmneto)
