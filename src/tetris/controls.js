@@ -10,9 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (gameOn) {
       if (gameOver) {
-        hideGameOver();
         handleNewGame();
-        curTurn = 0;
         gameOver = false;
       }
 

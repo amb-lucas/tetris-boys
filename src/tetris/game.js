@@ -12,12 +12,15 @@ const newPiece = () => {
 };
 
 // Game commands
-let curLim = 40;
+let curLim = 40,
+  curTurn = 0;
 const handleNewGame = () => {
+  hideGameOver();
   undraw();
 
   placedPositions = [];
   currentScore = 0;
+  curTurn = 0;
   curLim = 40;
   newPiece();
 
@@ -128,7 +131,6 @@ const processMove = (dir) => {
 // Turns
 document.addEventListener("DOMContentLoaded", () => {
   const timeInterval = 20;
-  let curTurn = 0;
 
   setInterval(() => {
     if (gameOn) {
