@@ -107,6 +107,7 @@ const processMove = (dir) => {
       placePiece();
       newPiece();
 
+      undraw();
       draw();
 
       if (checkColision()) {
