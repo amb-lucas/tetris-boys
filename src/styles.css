@@ -114,7 +114,7 @@ button:hover {
   position: absolute;
 
   opacity: 1;
-  visibility: visible;
+  visibility: hidden;
   transition: 0.3s;
 }
 .oooo-visible {
