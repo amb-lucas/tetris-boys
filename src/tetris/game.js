@@ -12,11 +12,13 @@ const newPiece = () => {
 };
 
 // Game commands
+let curLim = 40;
 const handleNewGame = () => {
   undraw();
 
   placedPositions = [];
   currentScore = 0;
+  curLim = 40;
   newPiece();
 
   draw();
@@ -89,6 +91,9 @@ const handleCompleteLines = () => {
   else if (completedLines === 2) showOo();
   else if (completedLines === 3) showOoo();
   else if (completedLines === 4) showOooo();
+
+  curLim -= completedLines;
+  if (curLim < 20) curLim = 20;
 };
 
 const placePiece = () => {
@@ -121,8 +126,7 @@ const processMove = (dir) => {
 
 // Turns
 document.addEventListener("DOMContentLoaded", () => {
-  const timeInterval = 50;
-  const curLim = 8;
+  const timeInterval = 20;
   let curTurn = 0;
 
   setInterval(() => {
@@ -140,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         command = "";
       }
 
-      if (curTurn === curLim) {
+      if (curTurn >= curLim) {
         curTurn = 0;
         processMove("down");
       }
