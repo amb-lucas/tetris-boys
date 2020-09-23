@@ -13,7 +13,6 @@ const newPiece = () => {
 
 // Game commands
 const handleNewGame = () => {
-  hideGameOver();
   undraw();
 
   placedPositions = [];
@@ -25,6 +24,7 @@ const handleNewGame = () => {
 
 const handleGameOver = () => {
   showGameOver();
+  showPlay();
   gameOver = true;
   gameOn = false;
 };
@@ -127,14 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(() => {
     if (gameOn) {
-      showPause();
       curTurn++;
-
-      if (gameOver === true) {
-        handleNewGame();
-        curTurn = 0;
-        gameOver = false;
-      }
 
       if (command) {
         if (command === "left") processMove("left");
@@ -151,6 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
         curTurn = 0;
         processMove("down");
       }
-    } else showPlay();
+    }
   }, timeInterval);
 });

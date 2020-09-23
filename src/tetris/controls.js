@@ -8,7 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     gameOn = !gameOn;
     startBtn.blur();
 
-    if (gameOn) hideHelpBox();
+    if (gameOn) {
+      if (gameOver) {
+        hideGameOver();
+        handleNewGame();
+        curTurn = 0;
+        gameOver = false;
+      }
+
+      hideHelpBox();
+      showPause();
+    } else {
+      showPlay();
+    }
   });
 });
 
